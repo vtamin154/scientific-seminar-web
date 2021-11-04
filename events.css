@@ -1,0 +1,9 @@
+.events .row{
+    padding: 50px 0;
+    border-bottom: 2px solid #cbcdce;
+}
+@media (max-width: 567px) {
+    .events .row .col-lg-7{
+        margin-top: 30px;
+    }
+}
