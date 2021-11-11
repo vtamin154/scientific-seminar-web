@@ -1,11 +1,18 @@
-import AbstractView from "./AbstractView";
-export default class Article_1 extends AbstractView{
-    constructor(){
-        super();
-    }
-    async getHtml(){
-        return `
-        <section class="container">
+import AbstractView from './AbstractView.js';
+export default class extends AbstractView {
+  constructor() {
+    super();
+    // this.setTitle('Dashboard');
+  }
+  async getHtml() {
+    // var ajax = new XMLHttpRequest();
+    // ajax.open('GET', 'Dashboard.html', false);
+    // ajax.send();
+
+    // document.body.innerHTML += ajax.responseText;
+
+    return `
+    <section class="container">
       <div class="row">
         <div
           class="col-lg-12 bg-img"
@@ -183,6 +190,6 @@ export default class Article_1 extends AbstractView{
         </div>
       </div>
     </section>
-        `
-    }
+    `;
+  }
 }

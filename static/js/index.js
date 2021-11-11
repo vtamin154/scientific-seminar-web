@@ -1,6 +1,7 @@
-import Article_1 from './view/Article_1.js';
+import Article from './view/Article.js';
 import Dashboard from './view/Dashboard.js';
 import Endocrinology from './view/Endocrinology.js';
+// import Event  from './view/Event.js';
 import Heart from './view/Heart.js';
 import Register from './view/Register.js';
 const navigateTo = (url) => {
@@ -16,10 +17,10 @@ const router = async () => {
     },
     {
       path: '/event',
-      view: () => console.log('view event'),
+      view: Event,
     },
     {
-      path: '/diengia',
+      path: '/dien-gia',
       view: () => console.log('view diengia'),
     },
     {
@@ -59,9 +60,9 @@ const router = async () => {
       view: () => console.log('view event'),
     },
     {
-      path:'/article_1',
-      view: Article_1
-    }
+      path: '/article',
+      view: Article,
+    },
   ];
 
   //test each router for potential match
@@ -85,7 +86,7 @@ const router = async () => {
 
   document.querySelector('#app').innerHTML = await view.getHtml();
 
-  console.log(match.route.view());
+  // console.log(match.route.view());
 };
 
 window.addEventListener('popstate', router);
@@ -99,3 +100,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   router();
 });
+
+

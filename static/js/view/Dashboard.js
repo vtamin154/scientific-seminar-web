@@ -135,7 +135,7 @@ export default class extends AbstractView {
               Johor, Malaysia trình bày, báo cáo “Phẫu thuật mũi và…”
             </p>
           </div>
-          <a href="/" class="mx-3" data-link
+          <a href="/article" class="mx-3" data-link
             ><i class="fas fa-arrow-right ms-2"></i>Đọc thêm</a
           >
         </div>
