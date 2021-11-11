@@ -1,16 +1,23 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500); */
 *:focus {
   outline: none;
 }
 
-body {
-  margin: 0;
+* {
   padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   background: #DDD;
   font-size: 16px;
   color: #222;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  /* font-family: 'Roboto', sans-serif; */
+  /* font-weight: 300; */
 }
 
 #login-box {
@@ -33,12 +40,6 @@ body {
   height: 400px;
 }
 
-h1 {
-  margin: 0 0 20px 0;
-  font-weight: 300;
-  font-size: 28px;
-}
-
 input[type="text"],
 input[type="password"] {
   display: block;
@@ -57,16 +58,16 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-  border-bottom: 2px solid #16a085;
-  color: #16a085;
+  border-bottom: 2px solid #117994;
+  color: #117994;
   transition: 0.2s ease;
 }
 
 input[type="submit"] {
   margin-top: 28px;
   width: 120px;
-  height: 32px;
-  background: #16a085;
+  height: 35px;
+  background: #1a9dbe;
   border: none;
   border-radius: 2px;
   color: #FFF;
@@ -111,16 +112,14 @@ input[type="submit"]:active {
   padding: 40px;
   width: 300px;
   height: 400px;
-  background: url('https://goo.gl/YbktSj');
+  background: url('./img/images.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 0 2px 2px 0;
 }
 
 .right .loginwith {
-  display: block;
-  margin-bottom: 40px;
-  font-size: 28px;
+  margin-bottom: 20px;
   color: #FFF;
   text-align: center;
 }
@@ -132,7 +131,7 @@ button.social-signin {
   border: none;
   border-radius: 2px;
   color: #FFF;
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
   font-weight: 500;
   transition: 0.2s ease;
   cursor: pointer;

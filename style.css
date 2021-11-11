@@ -1,3 +1,4 @@
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500); */
 * {
   padding: 0;
   margin: 0;
@@ -10,8 +11,10 @@ html {
 /* fixed header scroll */
 .navbar.sticky {
   position: fixed;
+  top: 0;
+  left: 0;
   padding: 15px 0;
-  z-index: 2;
+  z-index: 999;
 }
 .text-justify {
   text-align: justify;
@@ -116,7 +119,7 @@ section.goals {
 .activities > div > div {
   position: relative;
 }
-.bg-img{
+.bg-img {
   background-size: cover;
   background-position: center;
 }
@@ -151,10 +154,20 @@ section.goals {
   color: #1a9dbe;
 }
 
+/* footer  */
 footer div iframe {
   width: 100%;
 }
-
+/* events  */
+.events .row {
+  padding: 50px 0;
+  border-bottom: 2px solid #cbcdce;
+}
+@media (max-width: 567px) {
+  .events .row .col-lg-7 {
+    margin-top: 30px;
+  }
+}
 @media (max-width: 768px) {
   .activities .row .hover {
     width: 96.2%;

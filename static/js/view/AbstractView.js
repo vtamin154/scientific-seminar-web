@@ -1,11 +1,11 @@
-export default class{
-    constructor(){}
+export default class {
+  constructor() {}
 
-    setTitle(title){
-        document.title = title;
-    }
+  // setTitle(title){
+  //     document.title = title;
+  // }
 
-    async getHtml(){
-        return ""; 
-    }
+  async getHtml() {
+    return '';
+  }
 }
