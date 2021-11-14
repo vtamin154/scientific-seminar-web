@@ -56,7 +56,8 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="" class="btn text-white">Đăng ký</a>
+          <a href="/" class="btn text-white">Đăng ký 
+          </a>
         </div>
       </div>
       <div class="row">
@@ -80,7 +81,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="" class="btn text-white">Đăng ký</a>
+          <a href="/" class="btn text-white">Đăng ký</a>
         </div>
       </div>
       <div class="row">
@@ -104,7 +105,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="" class="btn text-white">Đăng ký</a>
+          <a href="/" class="btn text-white">Đăng ký</a>
         </div>
       </div>
       <div class="row">
@@ -128,7 +129,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="" class="btn text-white">Đăng ký</a>
+          <a href="/" class="btn text-white">Đăng ký</a>
         </div>
       </div>
     </section>

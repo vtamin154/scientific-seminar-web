@@ -118,107 +118,106 @@ export default class extends AbstractView {
     <!-- featured articles -->
     <section class="container articles mt-4" id="posts">
       <div class="row">
-        <h2 class="ms-3 text-uppercase">Các bài báo nổi bật</h2>
+        <h2 class="text-uppercase">Các bài báo nổi bật</h2>
         <div class="col-lg-4 my-4">
           <div>
-            <img src="img/dieu tri ngu ngay.JPG" class="d-block mx-auto" />
+            <img class="w-100 rounded" src="img/noi khoa.JPG" class="d-block mx-auto" />
           </div>
           <div>
-            <h4 class="mt-4 mx-3 text-justify">
-              Hội thảo trực tuyến: Chẩn đoán và điều trị ngủ ngáy và ngừng thở
+            <h4 class="mt-4 text-justify">
+              Hội thảo trực tuyến: Điều trị ngủ ngáy và ngừng thở
               khi ngủ
             </h4>
-            <p class="mx-3 text-justify">
+            <p class="text-justify">
               Buổi Hội thảo khoa học có ba báo cáo: Báo cáo “ Đánh giá tình
               trạng của bệnh nhân ngủ ngáy và ngừng thở khi ngủ” do giáo sư Yap
               Yoke Yeow chuyên gia Tai mũi họng, Bệnh viện hạng đặc biệt KPJ
               Johor, Malaysia trình bày, báo cáo “Phẫu thuật mũi và…”
             </p>
           </div>
-          <a href="/article" class="mx-3" data-link
+          <a href="/article" data-link
             ><i class="fas fa-arrow-right ms-2"></i>Đọc thêm</a
           >
         </div>
         <div class="col-lg-4 my-4">
           <div>
-            <img src="img/ung thu thuc quan.JPG" class="d-block mx-auto" />
+            <img src="img/ung thu thuc quan.JPG" class="d-block mx-auto w-100 rounded" />
           </div>
           <div>
-            <h4 class="mt-4 mx-3 text-justify">
-              Hội thảo khoa học: Cập nhật những tiến bộ trong điều trị ung thư
-              thực quản
+            <h4 class="mt-4 text-justify">
+              Hội thảo khoa học: Cập nhật tiến bộ điều trị ung thư thực quản
+              
             </h4>
-            <p class="mx-3 text-justify">
+            <p class="text-justify">
               Tham dự buổi Hội thảo khoa học có GS.TS. Mai Hồng Bàng - Giám đốc
               Bệnh viện Trung ương Quân đội 108, PGS.TS Nguyễn Anh Tuấn - Phó
               Viện trưởng Viện Phẫu thuật tiêu hóa - Bệnh viện Trung ương Quân
               đội 108, PGS. TS. Phạm Đức Huấn…
             </p>
           </div>
-          <a href="/" class="mx-3" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
         </div>
         <div class="col-lg-4 my-4">
           <div>
-            <img src="img/xet nghiem nuoc tieu.JPG" class="d-block mx-auto" />
+            <img src="img/xet nghiem nuoc tieu.JPG" class="d-block mx-auto w-100 rounded" />
           </div>
           <div>
-            <h4 class="mt-4 mx-3 text-justify">
+            <h4 class="mt-4 text-justify">
               Hội thảo khoa học: Ứng dụng lâm sàng của xét nghiệm cặn lắng nước
               tiểu
             </h4>
-            <p class="mx-3 text-justify">
+            <p class="text-justify">
               Tham dự buổi Hội thảo khoa học có PGS.TS. Lý Tuấn Khải – Chủ nhiệm
               khoa Huyết học - Bệnh viện Trung ương Quân đội 108, PGS. TS. Hà
               Phan Hải An - Phó Chủ tịch Hội thận học Việt Nam, BSCC. BSCKII Vũ
               Văn Trường - PGĐ Trung tâm Huyết học…
             </p>
           </div>
-          <a href="/" class="mx-3" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
         </div>
         <div class="col-lg-4 my-4">
           <div>
-            <img src="img/thuoc khang ket.JPG" class="d-block mx-auto" />
+            <img src="img/thuoc khang ket.JPG" class="d-block mx-auto w-100 rounded" />
           </div>
           <div>
-            <h4 class="mt-4 mx-3 text-justify">
+            <h4 class="mt-4 text-justify">
               Hội thảo khoa học: Vai trò của thuốc kháng kết tập tiểu cầu trong
               bệnh mạch vành
             </h4>
-            <p class="mx-3 text-justify">
+            <p class="text-justify">
               Buổi Hội thảo khoa học có ba báo cáo: Báo cáo “Liệu pháp xuống
               thang thuốc kháng P2Y12 trong hội chứng vành cấp” do PGS.TS. Lê
-              Văn Trường - Viện trưởng Viện Tim Mạch - Bệnh viện Trung ương Quân
-              đội…
+              Văn Trường - Viện trưởng Viện Tim Mạch…
             </p>
           </div>
-          <a href="/" class="mx-3" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
         </div>
         <div class="col-lg-4 my-4">
           <div>
-            <img src="img/xo phoi.JPG" class="d-block mx-auto" />
+            <img src="img/xo phoi.JPG" class="d-block mx-auto w-100 rounded" />
           </div>
           <div>
-            <h4 class="mt-4 text-justify mx-3">
+            <h4 class="mt-4 text-justify">
               Hội thảo khoa học: Chẩn đoán và điều trị Xơ phổi vô căn
             </h4>
-            <p class="mx-3 text-justify">
+            <p class="text-justify">
               Với mong muốn triển khai các giải pháp nâng cao chất lượng trong
               chẩn đoán và điều trị bệnh nhân Xơ phổi vô căn, Chiều ngày
               12/11/2020 tại Hội trường 2 Bệnh viện Trung ương Quân đội 108 đã
               tổ chức Hội thảo khoa học với chủ đề…
             </p>
           </div>
-          <a href="/" class="mx-3" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
         </div>
         <div class="col-lg-4 my-4">
           <div class="mx-auto">
-            <img src="img/soi mat tuy.JPG" class="d-block mx-auto" />
+            <img src="img/soi mat tuy.JPG" class="d-block mx-auto w-100 rounded" />
           </div>
           <div>
-            <h4 class="mt-4 text-justify mx-3">
+            <h4 class="mt-4 text-justify">
               Hội thảo Khoa học: Những tiến bộ trong Nội soi mật tụy ngược dòng
             </h4>
-            <p class="text-justify mx-3">
+            <p class="text-justify">
               Hội thảo trực tuyến lần này được tổ chức bởi Hội Nội soi Tiêu hóa
               châu Á Thái Bình Dương (APSDE), Liên Chi hội Nội soi tiêu hóa Việt
               Nam (VFDE) kết hợp với Viện điều trị các bệnh tiêu hóa- Bệnh viện

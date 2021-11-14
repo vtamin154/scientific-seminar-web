@@ -46,12 +46,26 @@ html {
   pointer-events: auto;
 }
 .button a {
+  /* background-color: #1a9dbe;
+  max-width: 250px; */
+
+  width: 170px;
+  height: 100%;
+  border: 2px solid #1a9dbe;
   background-color: #1a9dbe;
-  max-width: 250px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .button a:hover {
-  background: #117994;
+  /* background: #117994; */
+
+  color: #1a9dbe;
+  background: none;
 }
 /* content */
 .navbar {
@@ -107,7 +121,7 @@ section.goals {
   margin-bottom: 100px;
 }
 /* featured articles */
-.articles div a {
+.articles div  a.nav-link {
   color: #1a9dbe;
 }
 .articles div a:hover {
@@ -150,8 +164,110 @@ section.goals {
 .activities > div > div:hover .hover {
   opacity: 1;
 }
-.activities .hover a {
+.activities .hover .nav-link a {
   color: #1a9dbe;
+}
+
+/* dien gia  */
+.teams{
+  padding-top: 50px;
+  padding-bottom: 80px;
+}
+.teams .cover .card {
+  background: #222;
+  border-radius: 6px;
+  padding: 25px 0px;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  width: 32.4%;
+}
+.teams .cover .card:hover {
+  background: #1a9dbe;
+}
+.teams .cover .card .text {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+}
+.teams .cover .card img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #1a9dbe;
+  transition: all 0.3s ease;
+}
+.teams .cover .card:hover img {
+  border-color: white;
+}
+.teams .cover .card .box {
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.teams .cover .card:hover .box {
+  transform: scale(1.05);
+}
+
+
+/* contact  */
+.contact{
+  margin: 70px auto;
+}
+.contact  form .fields {
+  display: flex;
+}
+.contact  form .field,
+.contact form .fields .field {
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.contact form .textarea {
+  height: 80px;
+  width: 100%;
+}
+.contact form .textarea textarea {
+  padding-top: 10px;
+  resize: none;
+}
+.contact  form .button-area {
+  height: 47px;
+  width: 170px;
+}
+.contact  form .button-area button {
+  width: 170px;
+  height: 100%;
+  border: 2px solid #1a9dbe;
+  background-color: #1a9dbe;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.contact form .button-area button:hover {
+  color: #1a9dbe;
+  background: none;
+}
+.contact  form .name {
+  margin-right: 10px;
+}
+.contact  form .email {
+  margin-left: 10px;
+}
+.contact  form .field input,
+.contact  form .textarea textarea {
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  outline: none;
+  font-size: 17px;
+  padding: 0 15px;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* footer  */

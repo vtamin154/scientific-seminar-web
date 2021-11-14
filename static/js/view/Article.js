@@ -187,6 +187,31 @@ export default class extends AbstractView {
               </p>
             </article>
           </div>
+
+          <div class="row">
+            <div class="pagenavi">
+              <ul class="d-flex ps-0 mt-4 mb-4">
+                <li class="me-4 list-unstyled">
+                  <span><i class="fas fa-chevron-left"></i></span>
+                </li>
+                <li class="me-4 list-unstyled">
+                  <span class="text-white rounded text-center" style=" display: inline-block; width: 30px; height: 30px; background:#2a8cc0;">1</span>
+                </li>
+                <li class="me-4 list-unstyled">
+                  <a href="/" class="text-decoration-none text-dark">2</a>
+                </li>
+                <li class="me-4 list-unstyled">
+                  <a href="/" class="text-decoration-none text-dark">3</a>
+                </li>
+                <li class="me-4 list-unstyled">
+                  <a href="/" class="text-decoration-none text-dark">4</a>
+                </li>
+                <li class="me-4 list-unstyled">
+                  <span><i class="fas fa-chevron-right"></i></span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

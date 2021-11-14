@@ -28,7 +28,7 @@ const router = async () => {
       view: Register,
     },
     {
-      path: '/mau',
+      path: '/tim',
       view: Heart,
     },
     {
@@ -56,7 +56,7 @@ const router = async () => {
       view: () => console.log('view event'),
     },
     {
-      path: '/tim',
+      path: '/mau',
       view: () => console.log('view event'),
     },
     {
