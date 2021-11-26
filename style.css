@@ -121,7 +121,7 @@ section.goals {
   margin-bottom: 100px;
 }
 /* featured articles */
-.articles div  a.nav-link {
+.articles div a.nav-link {
   color: #1a9dbe;
 }
 .articles div a:hover {
@@ -169,7 +169,7 @@ section.goals {
 }
 
 /* dien gia  */
-.teams{
+.teams {
   padding-top: 50px;
   padding-bottom: 80px;
 }
@@ -210,15 +210,14 @@ section.goals {
   transform: scale(1.05);
 }
 
-
 /* contact  */
-.contact{
+.contact {
   margin: 70px auto;
 }
-.contact  form .fields {
+.contact form .fields {
   display: flex;
 }
-.contact  form .field,
+.contact form .field,
 .contact form .fields .field {
   height: 45px;
   width: 100%;
@@ -232,11 +231,11 @@ section.goals {
   padding-top: 10px;
   resize: none;
 }
-.contact  form .button-area {
+.contact form .button-area {
   height: 47px;
   width: 170px;
 }
-.contact  form .button-area button {
+.contact form .button-area button {
   width: 170px;
   height: 100%;
   border: 2px solid #1a9dbe;
@@ -252,14 +251,14 @@ section.goals {
   color: #1a9dbe;
   background: none;
 }
-.contact  form .name {
+.contact form .name {
   margin-right: 10px;
 }
-.contact  form .email {
+.contact form .email {
   margin-left: 10px;
 }
-.contact  form .field input,
-.contact  form .textarea textarea {
+.contact form .field input,
+.contact form .textarea textarea {
   height: 100%;
   width: 100%;
   border: 1px solid lightgray;
@@ -289,6 +288,11 @@ footer div iframe {
     width: 96.2%;
     /* opacity: 1; */
   }
+  .teams .cover .card {
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 0px;
+  }
 }
 @media (max-width: 576px) {
   .content div div h2 {
@@ -298,5 +302,10 @@ footer div iframe {
   .activities .row .hover {
     width: 94.3%;
     /* opacity: 1; */
+  }
+  .teams .cover .card {
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 0px;
   }
 }

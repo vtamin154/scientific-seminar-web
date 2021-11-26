@@ -17,7 +17,7 @@ export default class extends AbstractView {
         <div class="col-md-8 col-sm-10 mx-auto">
           <!-- mx-auto - center -->
           <h2 class="text-white ms-md-4 text-uppercase">
-            tiếp cận khác biệt cho cuộc sống tốt hơn
+            hội thảo khoa học: tiếp cận khác biệt cuộc sống tốt 
           </h2>
           <p class="text-white ms-md-4">
             Vitam là một cộng đồng quốc gia bao gồm các bác sĩ và chuyên gia có
@@ -40,7 +40,7 @@ export default class extends AbstractView {
     </section>
 
     <!-- event  -->
-    <section class="container event">
+    <section class="container event" id="event">
       <div class="row shadow py-4">
         <div class="col-sm-12 col-md-2 mx-auto my-auto">
           <img
@@ -63,7 +63,7 @@ export default class extends AbstractView {
             Hạn cuối cùng để đăng ký là <strong>ngày 15 tháng 11.</strong>
           </p>
           <div class="button mb-3">
-            <a href="#" class="btn text-white">Tìm hiểu thêm</a>
+            <a href="#" class="btn">Tìm hiểu thêm</a>
           </div>
         </div>
       </div>
@@ -121,12 +121,15 @@ export default class extends AbstractView {
         <h2 class="text-uppercase">Các bài báo nổi bật</h2>
         <div class="col-lg-4 my-4">
           <div>
-            <img class="w-100 rounded" src="img/noi khoa.JPG" class="d-block mx-auto" />
+            <img
+              class="w-100 rounded"
+              src="img/noi khoa.JPG"
+              class="d-block mx-auto"
+            />
           </div>
           <div>
             <h4 class="mt-4 text-justify">
-              Hội thảo trực tuyến: Điều trị ngủ ngáy và ngừng thở
-              khi ngủ
+              Hội thảo trực tuyến: Điều trị ngủ ngáy và ngừng thở khi ngủ
             </h4>
             <p class="text-justify">
               Buổi Hội thảo khoa học có ba báo cáo: Báo cáo “ Đánh giá tình
@@ -135,18 +138,20 @@ export default class extends AbstractView {
               Johor, Malaysia trình bày, báo cáo “Phẫu thuật mũi và…”
             </p>
           </div>
-          <a href="/article" data-link
+          <a class="nav-link" href="/article" data-link
             ><i class="fas fa-arrow-right ms-2"></i>Đọc thêm</a
           >
         </div>
         <div class="col-lg-4 my-4">
           <div>
-            <img src="img/ung thu thuc quan.JPG" class="d-block mx-auto w-100 rounded" />
+            <img
+              src="img/ung thu thuc quan.JPG"
+              class="d-block mx-auto w-100 rounded"
+            />
           </div>
           <div>
             <h4 class="mt-4 text-justify">
               Hội thảo khoa học: Cập nhật tiến bộ điều trị ung thư thực quản
-              
             </h4>
             <p class="text-justify">
               Tham dự buổi Hội thảo khoa học có GS.TS. Mai Hồng Bàng - Giám đốc
@@ -155,11 +160,14 @@ export default class extends AbstractView {
               đội 108, PGS. TS. Phạm Đức Huấn…
             </p>
           </div>
-          <a href="/" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" class="nav-link" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
         </div>
         <div class="col-lg-4 my-4">
           <div>
-            <img src="img/xet nghiem nuoc tieu.JPG" class="d-block mx-auto w-100 rounded" />
+            <img
+              src="img/xet nghiem nuoc tieu.JPG"
+              class="d-block mx-auto w-100 rounded"
+            />
           </div>
           <div>
             <h4 class="mt-4 text-justify">
@@ -173,11 +181,14 @@ export default class extends AbstractView {
               Văn Trường - PGĐ Trung tâm Huyết học…
             </p>
           </div>
-          <a href="/" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" class="nav-link" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
         </div>
         <div class="col-lg-4 my-4">
           <div>
-            <img src="img/thuoc khang ket.JPG" class="d-block mx-auto w-100 rounded" />
+            <img
+              src="img/thuoc khang ket.JPG"
+              class="d-block mx-auto w-100 rounded"
+            />
           </div>
           <div>
             <h4 class="mt-4 text-justify">
@@ -190,7 +201,7 @@ export default class extends AbstractView {
               Văn Trường - Viện trưởng Viện Tim Mạch…
             </p>
           </div>
-          <a href="/" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" class="nav-link" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
         </div>
         <div class="col-lg-4 my-4">
           <div>
@@ -207,11 +218,14 @@ export default class extends AbstractView {
               tổ chức Hội thảo khoa học với chủ đề…
             </p>
           </div>
-          <a href="/" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" class="nav-link" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
         </div>
         <div class="col-lg-4 my-4">
           <div class="mx-auto">
-            <img src="img/soi mat tuy.JPG" class="d-block mx-auto w-100 rounded" />
+            <img
+              src="img/soi mat tuy.JPG"
+              class="d-block mx-auto w-100 rounded"
+            />
           </div>
           <div>
             <h4 class="mt-4 text-justify">
@@ -224,11 +238,42 @@ export default class extends AbstractView {
               Trung ương Quân đội 108. Tham dự…
             </p>
           </div>
-          <a href="/" class="mx-3" data-link><i class="fas fa-arrow-right"></i>Đọc thêm</a>
+          <a href="/" class="mx-3 nav-link" data-link
+            ><i class="fas fa-arrow-right"></i>Đọc thêm</a
+          >
         </div>
         <div class="button my-4 mx-3">
-          <a class="text-white btn">Các bài viết khác</a>
+          <a class="btn">Bài viết khác</a>
         </div>
+      </div>
+    </section>
+
+    <!-- dien gia  -->
+    <section class="teams container my-4" id="teams">
+        <h2 class="text-uppercase fs-1">Diễn giả</h2>
+        <div class="cover owl-cover row ">
+          <div class="card text-white col-lg-4">
+            <div class="box">
+              <img src="./img/ts-tran-thai-ha-105953-140520-57.jpg" alt="" />
+              <p>Nguyen Thai Ha</p>
+              <p>PGS-TS</p>
+            </div>
+          </div>
+          <div class="card text-white col-lg-4">
+            <div class="box">
+              <img src="./img/ts-tran-thai-ha-105953-140520-57.jpg" alt="" />
+              <p>Nguyen Thai Ha</p>
+              <p>PGS-TS</p>
+            </div>
+          </div>
+          <div class="card text-white col-lg-4">
+            <div class="box">
+              <img src="./img/ts-tran-thai-ha-105953-140520-57.jpg" alt="" />
+              <p>Nguyen Thai Ha</p>
+              <p>PGS-TS</p>
+            </div>
+          </div>
+           
       </div>
     </section>
 
@@ -239,8 +284,7 @@ export default class extends AbstractView {
         <div class="col-lg-4 mt-2">
           <div
             style="
-            background-image: url(https://www.scientificseminars.com/wp-content/uploads/2019/07/cardiology_800x533.jpg);
-              
+              background-image: url(https://www.scientificseminars.com/wp-content/uploads/2019/07/cardiology_800x533.jpg);
             "
             class="bg-img"
           ></div>
@@ -325,13 +369,43 @@ export default class extends AbstractView {
         <div class="col-lg-4 mt-2">
           <div
             style="
-            background-image: url(https://www.scientificseminars.com/wp-content/uploads/2019/07/cardiometabolic_800x600-1.jpg);
+              background-image: url(https://www.scientificseminars.com/wp-content/uploads/2019/07/cardiometabolic_800x600-1.jpg);
             "
             class="bg-img"
           ></div>
           <div class="hover">
             <a href="/mau" class="nav-link" data-link>MÁU</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact  -->
+    <section class="container contact">
+      <div class="row">
+        <div class="col-lg-5">
+          <h2 class="fs-1 text-uppercase">Đăng ký</h2>
+          <p>Hãy tham gia với chúng tôi ngay để có thêm hiểu biết, giao lưu và gặp gỡ những chuyên gia y tế hàng đầu Việt Nam</p>
+          <p>Mọi thắc mắc xin liên hệ qua</p>
+        </div>
+        <div class="col-lg-7">
+          <form action="connection.php" method="post">
+            <div class="fields">
+                <div class="field name">
+                    <input type="text" placeholder="Tên" required name="username">
+                </div>
+                <div class="field email">
+                    <input type="email" placeholder="Email" name="email" required>
+                </div>
+            </div>
+            
+            <div class="field textarea">
+                <textarea cols="30" rows="10" placeholder="Tin nhắn..." required name="mota"></textarea>
+            </div>
+            <div class="button-area">
+                <button type="submit">Gửi</button>
+            </div>
+        </form>
         </div>
       </div>
     </section>

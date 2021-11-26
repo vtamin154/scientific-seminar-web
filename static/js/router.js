@@ -3,7 +3,7 @@ import Dashboard from './view/Dashboard.js';
 import Endocrinology from './view/Endocrinology.js';
 // import Event  from './view/Event.js';
 import Heart from './view/Heart.js';
-import Register from './view/Register.js';
+import Login from './view/Login.js';
 const navigateTo = (url) => {
   history.pushState(null, null, url);
   router();
@@ -24,8 +24,8 @@ const router = async () => {
       view: () => console.log('view diengia'),
     },
     {
-      path: '/register',
-      view: Register,
+      path: '/login',
+      view: Login,
     },
     {
       path: '/tim',
