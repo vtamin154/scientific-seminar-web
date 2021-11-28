@@ -1,7 +1,9 @@
 <?php
 include('connection.php');
 include('../header.php');
+$id = '';
 
+// add 
 if (isset($_POST['add'])) {
 
     $specialty = $_POST['specialty'];
@@ -25,11 +27,25 @@ if (isset($_POST['add'])) {
 
     // ALTER TABLE login.event AUTO_INCREMENT =1;
 }
+
+// edit 
+// if (isset($_GET['edit'])) {
+//     $id = $_GET['edit'];
+
+//     if(isset($_POST['editing'])){
+//         echo "This is '$id'";
+
+//     }
+// }
+
+// remove 
 if (isset($_POST['remove'])) {
     $id = $_POST['remove'];
 
-    $query = "delete from login.event where id = '$id'";
-    $query_run = mysqli_query($connect, $query);
+    if (isset($_POST['delete'])) {
+        $query = "delete from login.event where id = '$id'";
+        $query_run = mysqli_query($connect, $query);
+    }
 
     // if ($query_run) {
     //     $message = "Delete event success!";
@@ -72,13 +88,18 @@ if (isset($_POST['remove'])) {
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $row) {
                                 ?>
-                                        <tr>
-                                            <td><?= $row['specialty']; ?></td>
-                                            <td><?= $row['event']; ?></td>
-                                            <td><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit">Sửa</button></td>
+                                        <tr id="<?= $row['id']; ?>">
+                                            <td data-target="specialty"><?= $row['specialty']; ?></td>
+                                            <td data-target="event"><?= $row['event']; ?></td>
+                                            <td>
+                                                <!-- <form action="" method="get"> -->
+                                                <button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button>
+
+                                                <!-- </form> -->
+                                            </td>
                                             <td>
                                                 <form action="" method="post">
-                                                    <button class="btn btn-danger"  value="<?= $row['id']; ?>" name="remove">Xóa</button>
+                                                    <button class="btn btn-danger" value="<?= $row['id']; ?>" name="remove" data-bs-toggle="modal" data-bs-target="#delete">Xóa</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -129,44 +150,47 @@ if (isset($_POST['remove'])) {
 
 
                         <!-- edit  -->
-                        <div class="modal fade" id="edit" tabindex="-1" aria-hidden="true">
+                        <div class="modal fade" id="edit" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h4 class="modal-title mt-4">Thêm sự kiện</h4>
-                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal">
                                             <!-- &times; -->
                                         </button>
                                     </div>
 
                                     <div class="modal-body">
-                                        <form action="" method="POST">
-                                            <div class="form-group">
-                                                <label>Chuyên khoa</label>
-                                                <input type="text" name="specialty" placeholder="Chuyên khoa" class="form-control">
-                                            </div>
+                                        <!-- <form action=""> -->
 
-                                            <div class="form-group">
-                                                <label>Sự kiện</label>
-                                                <input type="text" name="event" placeholder="Sự kiện" class="form-control">
-                                            </div>
+                                        <div class="form-group">
+                                            <label>Chuyên khoa</label>
+                                            <input type="text" name="specialty" id="specialty" class="form-control">
+                                        </div>
 
-                                            <div class="modal-footer">
-                                                <button class=" btn btn-secondary" data-bs-dismiss="modal">
-                                                    Hủy
-                                                </button>
-                                                <button class="btn btn-success" data-bs-dismiss="modal" type="submit" name="submit">
-                                                    Ok
-                                                </button>
-                                            </div>
-                                        </form>
+                                        <div class="form-group">
+                                            <label>Sự kiện</label>
+                                            <input type="text" name="event" id="event" class="form-control">
+                                        </div>
+                                        <input type="hidden" id="id" class="form-control">
+
+                                        <div class="modal-footer">
+                                            <button class=" btn btn-secondary pull-left" data-bs-dismiss="modal">
+                                                Hủy
+                                            </button>
+
+                                            <button class="btn btn-success" type="submit" name="save" id="save">
+                                                Cập nhật
+                                            </button>
+                                        </div>
+                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- remove  -->
-                        <div class="modal fade" id="remove" tabindex="-1" aria-hidden="true">
+                        <!-- delete  -->
+                        <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -199,3 +223,44 @@ if (isset($_POST['remove'])) {
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $(document).on('click', 'button[data-role=edit]', function() {
+            // alert($(this).data('id'));
+
+            var id = $(this).data('id');
+            var specialty = $('#' + id).children('td[data-target=specialty]').text();
+            var event = $('#' + id).children('td[data-target=event]').text();
+
+            $('#specialty').val(specialty);
+            $('#event').val(event);
+            $('#id').val(id);
+            $('#edit').modal('toggle');
+        });
+
+        $('#save').click(function() {
+            var id = $('#id').val();
+            var specialty = $('#specialty').val();
+            var event = $('#event').val();
+
+            console.log(specialty);
+            $.ajax({
+                url: 'edit.php',
+                method: 'post',
+                data: {
+                    specialty: specialty,
+                    event: event,
+                    id: id
+                },
+                success: function(response) {
+                    // console.log(response);
+                    $('#' + id).children('td[data-target=specialty]').text(specialty);
+                    $('#' + id).children('td[data-target=event]').text(event);
+                    $('#edit').modal('toggle');
+                    // console.log(specialty);
+                }
+            })
+        })
+    })
+</script>
