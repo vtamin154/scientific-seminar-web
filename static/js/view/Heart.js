@@ -46,7 +46,7 @@ export default class extends AbstractView {
           "
         ></div>
         <div class="col-lg-7">
-          <h3>Bệnh tăng huyết áp</h3>
+          <h3 class = "mt-1">Bệnh tăng huyết áp</h3>
           <p class="text-justify">
             Tầm quan trọng của thuốc chẹn bêta trong điều trị tăng huyết áp, đặc
             biệt đối với những bệnh nhân có chỉ định thuyết phục, chẳng hạn như
@@ -56,7 +56,8 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="/" class="btn text-white">Đăng ký 
+          <a href="regisevent.php" class="btn 
+          ">Đăng ký 
           </a>
         </div>
       </div>
@@ -71,7 +72,7 @@ export default class extends AbstractView {
           "
         ></div>
         <div class="col-lg-7">
-          <h3>Hội thảo về cơ tim</h3>
+          <h3 class = "mt-1">Hội thảo về cơ tim</h3>
           <p class="text-justify">
             Bệnh chuyển hóa tim là nguyên nhân chính gây ra bệnh tật và tử vong
             trên toàn thế giới. Trong tương lai rất gần, 75% bệnh nhân mắc chứng
@@ -81,7 +82,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="/" class="btn text-white">Đăng ký</a>
+          <a href="regisevent.php" class="btn ">Đăng ký</a>
         </div>
       </div>
       <div class="row">
@@ -95,7 +96,7 @@ export default class extends AbstractView {
           "
         ></div>
         <div class="col-lg-7">
-          <h3>Hệ thống đo tim mạch</h3>
+          <h3 class = "mt-1">Hệ thống đo tim mạch</h3>
           <p class="text-justify">
             Rối loạn chuyển hóa tim là nguyên nhân chính gây tử vong trên toàn
             thế giới, và có liên quan đến các rối loạn nội tiết như tiểu đường
@@ -105,7 +106,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="/" class="btn text-white">Đăng ký</a>
+          <a href="regisevent.php" class="btn ">Đăng ký</a>
         </div>
       </div>
       <div class="row">
@@ -119,7 +120,7 @@ export default class extends AbstractView {
           "
         ></div>
         <div class="col-lg-7">
-          <h3>Các nguy cơ tim mạch</h3>
+          <h3 class = "mt-1">Các nguy cơ tim mạch</h3>
           <p class="text-justify">
             Hội thảo Khoa học đã thiết kế một Hành trình học tập kết hợp toàn
             diện nhằm nâng cao kiến ​​thức phòng chống bệnh tim mạch ở bệnh nhân
@@ -129,7 +130,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="/" class="btn text-white">Đăng ký</a>
+          <a href="regisevent.php" class="btn ">Đăng ký</a>
         </div>
       </div>
     </section>

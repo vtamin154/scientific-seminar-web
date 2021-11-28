@@ -6,7 +6,7 @@ export default class extends AbstractView {
   }
   async getHtml() {
     // var ajax = new XMLHttpRequest();
-    // ajax.open('GET', 'login.html', false);
+    // ajax.open('GET', 'login.php', false);
     // ajax.send();
     // document.body.innerHTML = ajax.responseText;
 

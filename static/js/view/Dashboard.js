@@ -17,7 +17,7 @@ export default class extends AbstractView {
         <div class="col-md-8 col-sm-10 mx-auto">
           <!-- mx-auto - center -->
           <h2 class="text-white ms-md-4 text-uppercase">
-            hội thảo khoa học: tiếp cận khác biệt cuộc sống tốt 
+            hội thảo khoa học: tiếp cận khác biệt  
           </h2>
           <p class="text-white ms-md-4">
             Vitam là một cộng đồng quốc gia bao gồm các bác sĩ và chuyên gia có
@@ -78,18 +78,17 @@ export default class extends AbstractView {
         <h2 class="text-uppercase">Nhiệm vụ</h2>
         <p class="text-justify">
           Nhiệm vụ của Vitam là cung cấp thông tin mới cập nhật, củng cố và mở
-          rộng cơ sở kiến ​​thức của các chuyên gia bằng cách phát triển và cung
-          cấp các hoạt động giáo dục trên toàn quốc.
+          rộng cơ sở kiến ​​thức của các chuyên gia bằng cách phát triển.
           <br />
           Đội ngũ bác sĩ dày dặn kinh nghiệm đảm bảo sẽ truyền tải các kiến thức
-          mới nhất và hướng dẫn thực hành chuyên nghiệp.
+          mới nhất và hướng dẫn thực hành.
           <br />
           Hiệp hội Vitam hợp tác chặt chẽ với các trường đại học , Cơ quan Y tế
           địa phương, liên tục tìm kiếm các quan hệ đối tác khoa học đảm bảo nội
           dung mang tính thời sự và vô giá. Vitam còn tinh chỉnh cấu trúc giảng
           dạy của các hoạt động giáo dục, cung cấp các chương trình trực tiếp và
           trực tuyến tiếp cận người dùng rộng rãi hơn, đảm bảo đào tạo hiệu quả,
-          cải thiện cuộc sống của bệnh nhân.
+          cải thiện cuộc sống.
         </p>
       </div>
     </section>
@@ -289,7 +288,7 @@ export default class extends AbstractView {
             class="bg-img"
           ></div>
           <div class="hover">
-            <a href="/tim" data-link class="nav-link">TIM MẠCH</a>
+            <a style = "color: #1a9dbe;" href="/tim" data-link class="nav-link">TIM MẠCH</a>
           </div>
         </div>
 
@@ -301,7 +300,7 @@ export default class extends AbstractView {
             class="bg-img"
           ></div>
           <div class="hover">
-            <a href="/noi-tuyen" data-link class="nav-link">NỘI TUYẾN</a>
+            <a href="/noi-tuyen" data-link class="nav-link" style = "color: #1a9dbe;">NỘI TUYẾN</a>
           </div>
         </div>
         <div class="col-lg-4 mt-2">
@@ -312,7 +311,7 @@ export default class extends AbstractView {
             class="bg-img"
           ></div>
           <div class="hover">
-            <a href="/sinh-san" data-link class="nav-link"> SINH SẢN</a>
+            <a href="/sinh-san" data-link class="nav-link" style = "color: #1a9dbe;"> SINH SẢN</a>
           </div>
         </div>
       </div>
@@ -326,7 +325,7 @@ export default class extends AbstractView {
             class="bg-img"
           ></div>
           <div class="hover">
-            <a href="/ung-thu" data-link class="nav-link">UNG THƯ</a>
+            <a href="/ung-thu" data-link class="nav-link" style = "color: #1a9dbe;">UNG THƯ</a>
           </div>
         </div>
         <div class="col-lg-6 mt-2">
@@ -338,7 +337,7 @@ export default class extends AbstractView {
             class="bg-img"
           ></div>
           <div class="hover">
-            <a href="/than-kinh" data-link class="nav-link">THẦN KINH HỌC</a>
+            <a href="/than-kinh" data-link class="nav-link" style = "color: #1a9dbe;">THẦN KINH HỌC</a>
           </div>
         </div>
       </div>
@@ -352,7 +351,7 @@ export default class extends AbstractView {
             class="bg-img"
           ></div>
           <div class="hover">
-            <a href="/da-lieu" data-link class="nav-link">DA LIỄU</a>
+            <a href="/da-lieu" data-link class="nav-link" style = "color: #1a9dbe;">DA LIỄU</a>
           </div>
         </div>
         <div class="col-lg-4 mt-2">
@@ -363,7 +362,7 @@ export default class extends AbstractView {
             class="bg-img"
           ></div>
           <div class="hover">
-            <a href="/tam-ly" class="nav-link" data-link>TÂM LÝ</a>
+            <a href="/tam-ly" class="nav-link" data-link style = "color: #1a9dbe;">TÂM LÝ</a>
           </div>
         </div>
         <div class="col-lg-4 mt-2">
@@ -374,7 +373,7 @@ export default class extends AbstractView {
             class="bg-img"
           ></div>
           <div class="hover">
-            <a href="/mau" class="nav-link" data-link>MÁU</a>
+            <a href="/mau" class="nav-link" data-link style = "color: #1a9dbe;">MÁU</a>
           </div>
         </div>
       </div>

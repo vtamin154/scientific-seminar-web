@@ -50,7 +50,7 @@ html {
   max-width: 250px; */
 
   width: 170px;
-  height: 100%;
+  /* height: 100%; */
   border: 2px solid #1a9dbe;
   background-color: #1a9dbe;
   color: #fff;
@@ -166,6 +166,10 @@ section.goals {
 }
 .activities .hover .nav-link a {
   color: #1a9dbe;
+}
+
+.activities .hover .nav-link a:hover {
+  color: #1288a5;
 }
 
 /* dien gia  */
