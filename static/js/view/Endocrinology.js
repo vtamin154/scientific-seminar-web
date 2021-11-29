@@ -9,6 +9,7 @@ export default class extends AbstractView {
     // ajax.open('GET', 'event.html', false);
     // ajax.send();
     // document.body.innerHTML += ajax.responseText;
+
     return `
     <section class="container">
       <div class="row">

@@ -1,14 +1,18 @@
 <?php
-include('connection.php');
+// include('connection.php');
+include('authentication.php');
 include('../header.php');
 ?>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12">
+        <?php
+        include('sidebar.php');
+        ?>
+        <div class="col-lg-10">
             <div class="card">
                 <div class="card-header">
-                    <h4>Registered event</h4>
+                    <h4>Danh sách tham dự</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover table-bordered">

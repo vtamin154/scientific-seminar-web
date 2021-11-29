@@ -8,37 +8,29 @@ include('../header.php');
 // add 
 if (isset($_POST['add'])) {
 
+    $name = $_POST['name'];
+    $degree = $_POST['degree'];
     $specialty = $_POST['specialty'];
-    $event = $_POST['event'];
 
-    $query = "insert into event value (null, '$specialty', '$event')";
+    $query = "insert into speaker value (null, '$name', '$degree','$specialty')";
     $query_run = mysqli_query($connect, $query);
-
-    // if ($query_run) {
-    //     $message = "Add event success!";
-    //     echo "<script type='text/javascript'>alert('$message');</script>";
-    // } else {
-    //     echo "Can't add event!";
-    // }
-
-
 
     // SET  @num := 0;
 
-    // UPDATE login.event SET id = @num := (@num+1);
+    // UPDATE login.speaker SET id = @num := (@num+1);
 
-    // ALTER TABLE login.event AUTO_INCREMENT =1;
+    // ALTER TABLE login.speaker AUTO_INCREMENT =1;
 }
 
 // edit 
-
-// if (isset($_POST['event'])) {
+// if (isset($_POST['degree'])) {
+//     $name = $_POST['name'];
+//     $degree = $_POST['degree'];
 //     $specialty = $_POST['specialty'];
-//     $event = $_POST['event'];
 //     $id = $_POST['id'];
 
-// echo "$specialty";
-// $query_run = mysqli_query($connect, "update login.event set specialty = '$specialty', event = '$event' where id = '$id'");
+//     // echo "$specialty";
+//     $query_run = mysqli_query($connect, "update login.speaker set specialty = '$specialty', name = '$name', degree = '$degree' where id = '$id'");
 
 // if ($query_run) {
 //     $_SESSION['message'] = "Update success!";
@@ -52,7 +44,7 @@ if (isset($_POST['remove'])) {
     $id = $_POST['remove'];
 
     // if (isset($_POST['delete'])) {
-    $query = "delete from login.event where id = '$id'";
+    $query = "delete from login.speaker where id = '$id'";
     $query_run = mysqli_query($connect, $query);
     // }
 
@@ -64,32 +56,33 @@ if (isset($_POST['remove'])) {
 }
 ?>
 
-<!-- <?php
+<?php
 include('message.php');
-?> -->
+?>
 <div>
     <div class="container-fluid">
         <div class="row">
-            <?php 
+            <?php
             include('sidebar.php');
             ?>
             <div class="col-lg-10">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Hội thảo</h4>
+                        <h4>Diễn giả</h4>
                     </div>
                     <div class="card-body">
 
                         <button class="btn btn-info text-white mb-2" data-bs-toggle="modal" data-bs-target="#add">
-                            Thêm sự kiện
+                            Thêm diễn giả
                         </button>
 
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="tbl-item">
                                     <!-- <th scope="col">STT</th> -->
-                                    <th scope="col">Chuyên khoa</th>
-                                    <th scope="col">Sự kiện</th>
+                                    <th scope="col">Tên diễn giả</th>
+                                    <th scope="col">Học vị</th>
+                                    <th scope="col">Chuyên ngành</th>
                                     <th scope="col">Sửa</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
@@ -97,14 +90,15 @@ include('message.php');
 
                             <tbody>
                                 <?php
-                                $query = "select * from event";
+                                $query = "select * from speaker";
                                 $query_run = mysqli_query($connect, $query);
                                 if (mysqli_num_rows($query_run) > 0) {
                                     foreach ($query_run as $row) {
                                 ?>
                                         <tr id="<?= $row['id']; ?>">
+                                            <td data-target="name"><?= $row['name']; ?></td>
+                                            <td data-target="degree"><?= $row['degree']; ?></td>
                                             <td data-target="specialty"><?= $row['specialty']; ?></td>
-                                            <td data-target="event"><?= $row['event']; ?></td>
                                             <td>
                                                 <!-- <form action="" method="get"> -->
                                                 <button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button>
@@ -113,7 +107,10 @@ include('message.php');
                                             </td>
                                             <td>
                                                 <form action="" method="post">
-                                                    <button class="btn btn-danger" value="<?= $row['id']; ?>" name="remove" id="remove">Xóa</button>
+                                                    <button class="btn btn-danger" value="<?= $row['id']; ?>" name="remove">
+                                                        <!-- data-bs-toggle="modal" data-bs-target="#delete"  -->
+                                                        Xóa
+                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -124,13 +121,13 @@ include('message.php');
                             </tbody>
                         </table>
 
-                        <!-- add event  -->
+                        <!-- add speaker  -->
 
                         <div class="modal fade" id="add" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title mt-4">Thêm sự kiện</h4>
+                                        <h4 class="modal-title mt-4">Thêm diễn giả</h4>
                                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">
                                             <!-- &times; -->
                                         </button>
@@ -139,13 +136,18 @@ include('message.php');
                                     <div class="modal-body">
                                         <form action="" method="POST">
                                             <div class="form-group">
-                                                <label>Chuyên khoa</label>
-                                                <input type="text" name="specialty" placeholder="Chuyên khoa" class="form-control">
+                                                <label>Tên diễn giả</label>
+                                                <input type="text" name="name" class="form-control">
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Sự kiện</label>
-                                                <input type="text" name="event" placeholder="Sự kiện" class="form-control">
+                                                <label>Học vị</label>
+                                                <input type="text" name="degree" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Chuyên ngành</label>
+                                                <input type="text" name="specialty" class="form-control">
                                             </div>
 
                                             <div class="modal-footer">
@@ -168,7 +170,7 @@ include('message.php');
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title mt-4">Sửa sự kiện</h4>
+                                        <h4 class="modal-title mt-4">Sửa diễn giả</h4>
                                         <button class="btn-close" type="button" data-bs-dismiss="modal">
                                             <!-- &times; -->
                                         </button>
@@ -178,14 +180,20 @@ include('message.php');
                                         <!-- <form action=""> -->
 
                                         <div class="form-group">
-                                            <label>Chuyên khoa</label>
-                                            <input type="text" name="specialty" id="specialty" class="form-control">
+                                            <label>Tên diễn giả</label>
+                                            <input type="text" name="name" id="name" class="form-control">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Sự kiện</label>
-                                            <input type="text" name="event" id="event" class="form-control">
+                                            <label>Học vị</label>
+                                            <input type="text" name="degree" id="degree" class="form-control">
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Chuyên ngành</label>
+                                            <input type="text" name="specialty" id="specialty" class="form-control">
+                                        </div>
+
                                         <input type="hidden" id="id" class="form-control">
 
                                         <div class="modal-footer">
@@ -208,7 +216,7 @@ include('message.php');
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title mt-4">Xóa sự kiện</h4>
+                                        <h4 class="modal-title mt-4">Xóa diễn giả</h4>
                                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">
                                             <!-- &times; -->
                                         </button>
@@ -244,33 +252,38 @@ include('message.php');
             // alert($(this).data('id'));
 
             var id = $(this).data('id');
+            var name = $('#' + id).children('td[data-target=name]').text();
+            var degree = $('#' + id).children('td[data-target=degree]').text();
             var specialty = $('#' + id).children('td[data-target=specialty]').text();
-            var event = $('#' + id).children('td[data-target=event]').text();
 
+            $('#name').val(name);
+            $('#degree').val(degree);
             $('#specialty').val(specialty);
-            $('#event').val(event);
             $('#id').val(id);
             $('#edit').modal('toggle');
         });
 
         $('#save').click(function() {
             var id = $('#id').val();
+            var name = $('#name').val();
+            var degree = $('#degree').val();
             var specialty = $('#specialty').val();
-            var event = $('#event').val();
 
             console.log(specialty);
             $.ajax({
-                url: 'edit.php',
+                url: 'speaker.php',
                 method: 'post',
                 data: {
+                    name: name,
+                    degree: degree,
                     specialty: specialty,
-                    event: event,
                     id: id
                 },
                 success: function(response) {
                     // console.log(response);
+                    $('#' + id).children('td[data-target=name]').text(name);
+                    $('#' + id).children('td[data-target=degree]').text(degree);
                     $('#' + id).children('td[data-target=specialty]').text(specialty);
-                    $('#' + id).children('td[data-target=event]').text(event);
                     $('#edit').modal('toggle');
                     // console.log(specialty);
                 }

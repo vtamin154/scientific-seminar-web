@@ -100,5 +100,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   router();
 });
-
-

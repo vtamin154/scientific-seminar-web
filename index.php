@@ -1,3 +1,8 @@
+<?php
+session_start();
+// include('authentication.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +29,7 @@
       <a href="#" class="navbar-brand">Vitam</a>
       <!-- search -->
       <form>
-        <input type="search" placeholder="Tìm kiếm" class="form-control" />
+        <input type="search" placeholder="Tìm kiếm" class="form-control text-white" />
       </form>
       <!-- Link -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLink">
@@ -52,13 +57,36 @@
           <li class="nav-item">
             <a class="nav-link" href="#posts">Bài viết</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./admin/login.php">Đăng nhập</a>
-          </li>
+
+          <?php if (isset($_SESSION['auth_user'])) : ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
+                <?= $_SESSION['auth_user']['user_username']; ?>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="min-width: 30px;">
+                <li>
+                  <!-- <a href="#" class="dropdown-item">Logout</a> -->
+                  <form action="./admin/logout.php" method="post">
+                    <button class="dropdown-item" type="submit" name="logout">
+                      Logout
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </li>
+
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="./admin/login.php">Đăng nhập</a>
+            </li>
+
+          <?php endif; ?>
+
         </ul>
       </div>
     </div>
   </nav>
+  <!-- <?php include('./admin/message.php'); ?> -->
 
   <div id="app"></div>
 

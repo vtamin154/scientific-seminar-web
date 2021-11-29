@@ -6,9 +6,14 @@ export default class extends AbstractView {
   }
   async getHtml() {
     // var ajax = new XMLHttpRequest();
-    // ajax.open('GET', 'event.html', false);
+    // ajax.open(
+    //   'GET',
+    //   'static/js/view/heart.php',
+    //   false
+    // );
     // ajax.send();
-    // document.body.innerHTML += ajax.responseText;
+    // document.body.innerHTML = ajax.responseText;
+
     return `
     <section class="container">
       <div class="row">
@@ -56,8 +61,8 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="regisevent.php" class="btn 
-          ">Đăng ký 
+          <a href="./admin/regisevents.php" class="btn
+          ">Đăng ký
           </a>
         </div>
       </div>
@@ -82,7 +87,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="regisevent.php" class="btn ">Đăng ký</a>
+          <a href="./admin/regisevents.php" class="btn ">Đăng ký</a>
         </div>
       </div>
       <div class="row">
@@ -106,7 +111,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="regisevent.php" class="btn ">Đăng ký</a>
+          <a href="./admin/regisevents.php" class="btn ">Đăng ký</a>
         </div>
       </div>
       <div class="row">
@@ -130,7 +135,7 @@ export default class extends AbstractView {
           </p>
         </div>
         <div class="col-lg-2 button px-4 mt-1">
-          <a href="regisevent.php" class="btn ">Đăng ký</a>
+          <a href="./admin/regisevents.php" class="btn ">Đăng ký</a>
         </div>
       </div>
     </section>
