@@ -1,9 +1,9 @@
 import Article from './view/Article.js';
 import Dashboard from './view/Dashboard.js';
 import Endocrinology from './view/Endocrinology.js';
-// import Event  from './view/Event.js';
 import Heart from './view/Heart.js';
 import Login from './view/Login.js';
+import Event from './view/Event.js';
 const navigateTo = (url) => {
   history.pushState(null, null, url);
   router();

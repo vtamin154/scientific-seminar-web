@@ -1,6 +1,6 @@
 <?php
-include('authentication.php');
-// include('connection.php');
+// include('authentication.php');
+include('connection.php');
 
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
     if ($query_run) {
         $message = "Register success!";
         echo "<script type='text/javascript'>alert('$message');</script>";
+        // header("Location:index.php");
     } else {
         echo "error";
     }
@@ -99,10 +100,22 @@ if (isset($_POST['submit'])) {
 
                 <select class="form-select mt-3" aria-label="Default select example" required name="event">
                     <option selected>Choose event</option>
-                    <option value="Bệnh tăng huyết áp">Bệnh tăng huyết áp</option>
+                    <?php
+                    $query = "select event from login.event";
+                    $query_run = mysqli_query($connect, $query);
+                    if (mysqli_num_rows($query_run) > 0) {
+                        foreach ($query_run as $row) {
+                    ?>
+                            <option value="<?= $row['event']; ?>"><?= $row['event']; ?></option>
+                    <?php
+                        }
+                    }
+                    ?>
+                    <!-- <option value="Bệnh tăng huyết áp">Bệnh tăng huyết áp</option>
                     <option value="Hội thảo về cơ tim">Hội thảo về cơ tim</option>
                     <option value="Hệ thống đo tim mạch">Hệ thống đo tim mạch</option>
-                    <option value="Các nguy cơ tim mạch">Các nguy cơ tim mạch</option>
+                    <option value="Các nguy cơ tim mạch">Các nguy cơ tim mạch</option> -->
+
                 </select>
 
                 <input type="submit" name="submit" value="Gửi" />

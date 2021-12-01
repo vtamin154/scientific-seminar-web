@@ -40,6 +40,7 @@ if (isset($_POST['username'])) {
       header("Location: ../index.php");
       exit();
     }
+    
   } else {
     $_SESSION['message'] = "Login failded!";
     header("Location:login.php");
