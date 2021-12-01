@@ -32,20 +32,14 @@ if (isset($_POST['add'])) {
 
 // edit 
 
-// if (isset($_POST['event'])) {
-//     $specialty = $_POST['specialty'];
-//     $event = $_POST['event'];
-//     $id = $_POST['id'];
+if (isset($_POST['save'])) {
+    $specialty = $_POST['specialty'];
+    $event = $_POST['event'];
+    $id = $_POST['id'];
 
-// echo "$specialty";
-// $query_run = mysqli_query($connect, "update login.event set specialty = '$specialty', event = '$event' where id = '$id'");
-
-// if ($query_run) {
-//     $_SESSION['message'] = "Update success!";
-// } else {
-//     $_SESSION['message'] = "Error!";
-// }
-// }
+    echo "$specialty";
+    $query_run = mysqli_query($connect, "update login.event set specialty = '$specialty', event = '$event' where id = '$id'");
+}
 
 // remove 
 if (isset($_POST['remove'])) {
@@ -64,13 +58,10 @@ if (isset($_POST['remove'])) {
 }
 ?>
 
-<!-- <?php
-include('message.php');
-?> -->
 <div>
     <div class="container-fluid">
         <div class="row">
-            <?php 
+            <?php
             include('sidebar.php');
             ?>
             <div class="col-lg-10">
@@ -257,15 +248,17 @@ include('message.php');
             var id = $('#id').val();
             var specialty = $('#specialty').val();
             var event = $('#event').val();
+            var save = $('#save').val();
 
             console.log(specialty);
             $.ajax({
-                url: 'edit.php',
+                url: 'event.php',
                 method: 'post',
                 data: {
                     specialty: specialty,
                     event: event,
-                    id: id
+                    id: id,
+                    save: save
                 },
                 success: function(response) {
                     // console.log(response);

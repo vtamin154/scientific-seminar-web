@@ -1,7 +1,9 @@
 <?php
 include('authentication.php');
 include('../header.php');
+include('message.php');
 ?>
+
 <div class="container-fluid ">
     <div class="row">
         <div class="col-auto col-md-3 col-xl-2" style="background-color: #1a9dbe;">
@@ -15,7 +17,7 @@ include('../header.php');
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
                     </li>
-                    
+
                     <li>
                         <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
                             <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Danh mục</span> </a>
@@ -31,7 +33,7 @@ include('../header.php');
                             </li>
                         </ul>
                     </li>
-                    
+
                 </ul>
                 <hr>
                 <div class="dropdown pb-4" style="margin-top: 267px;">

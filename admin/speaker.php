@@ -23,21 +23,21 @@ if (isset($_POST['add'])) {
 }
 
 // edit 
-// if (isset($_POST['degree'])) {
-//     $name = $_POST['name'];
-//     $degree = $_POST['degree'];
-//     $specialty = $_POST['specialty'];
-//     $id = $_POST['id'];
+if (isset($_POST['save'])) {
+    $name = $_POST['name'];
+    $degree = $_POST['degree'];
+    $specialty = $_POST['specialty'];
+    $id = $_POST['id'];
 
-//     // echo "$specialty";
-//     $query_run = mysqli_query($connect, "update login.speaker set specialty = '$specialty', name = '$name', degree = '$degree' where id = '$id'");
+    // echo "$specialty";
+    $query_run = mysqli_query($connect, "update login.speaker set specialty = '$specialty', name = '$name', degree = '$degree' where id = '$id'");
 
-// if ($query_run) {
-//     $_SESSION['message'] = "Update success!";
-// } else {
-//     $_SESSION['message'] = "Error!";
-// }
-// }
+    if ($query_run) {
+        $_SESSION['message'] = "Update success!";
+    } else {
+        $_SESSION['message'] = "Error!";
+    }
+}
 
 // remove 
 if (isset($_POST['remove'])) {
@@ -48,16 +48,7 @@ if (isset($_POST['remove'])) {
     $query_run = mysqli_query($connect, $query);
     // }
 
-    // if ($query_run) {
-    //     $_SESSION['message'] = "Delete success!";
-    // } else {
-    //     $_SESSION['message'] = "Error!";
-    // }
 }
-?>
-
-<?php
-include('message.php');
 ?>
 <div>
     <div class="container-fluid">
@@ -268,6 +259,7 @@ include('message.php');
             var name = $('#name').val();
             var degree = $('#degree').val();
             var specialty = $('#specialty').val();
+            var save = $('#save').val();
 
             console.log(specialty);
             $.ajax({
@@ -277,7 +269,8 @@ include('message.php');
                     name: name,
                     degree: degree,
                     specialty: specialty,
-                    id: id
+                    id: id,
+                    save: save
                 },
                 success: function(response) {
                     // console.log(response);
