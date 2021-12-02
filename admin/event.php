@@ -6,12 +6,12 @@ include('authentication.php');
 include('../header.php');
 
 // add 
-if (isset($_POST['add'])) {
+if (isset($_POST['addNew'])) {
 
     $specialty = $_POST['specialty'];
     $event = $_POST['event'];
 
-    $query = "insert into event value (null, '$specialty', '$event')";
+    $query = "insert into login.event value (null, '$specialty', '$event')";
     $query_run = mysqli_query($connect, $query);
 
     // if ($query_run) {
@@ -42,8 +42,8 @@ if (isset($_POST['save'])) {
 }
 
 // remove 
-if (isset($_POST['remove'])) {
-    $id = $_POST['remove'];
+if (isset($_POST['del'])) {
+    $id = $_POST['id'];
 
     // if (isset($_POST['delete'])) {
     $query = "delete from login.event where id = '$id'";
@@ -71,11 +71,11 @@ if (isset($_POST['remove'])) {
                     </div>
                     <div class="card-body">
 
-                        <button class="btn btn-info text-white mb-2" data-bs-toggle="modal" data-bs-target="#add">
+                        <button class="btn btn-info text-white mb-2" data-bs-toggle="modal" data-bs-target="#add" data-role="add">
                             Thêm sự kiện
                         </button>
 
-                        <table class="table table-hover table-bordered">
+                        <table class="table table-hover table-bordered" id="event">
                             <thead>
                                 <tr class="tbl-item">
                                     <!-- <th scope="col">STT</th> -->
@@ -103,9 +103,9 @@ if (isset($_POST['remove'])) {
                                                 <!-- </form> -->
                                             </td>
                                             <td>
-                                                <form action="" method="post">
-                                                    <button class="btn btn-danger" value="<?= $row['id']; ?>" name="remove" id="remove">Xóa</button>
-                                                </form>
+                                                <!-- <form action="" method="post"> -->
+                                                <button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" id="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">Xóa</button>
+                                                <!-- </form> -->
                                             </td>
                                         </tr>
                                 <?php
@@ -117,7 +117,7 @@ if (isset($_POST['remove'])) {
 
                         <!-- add event  -->
 
-                        <div class="modal fade" id="add" tabindex="-1" aria-hidden="true">
+                        <div class="modal fade" id="add" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -128,26 +128,26 @@ if (isset($_POST['remove'])) {
                                     </div>
 
                                     <div class="modal-body">
-                                        <form action="" method="POST">
-                                            <div class="form-group">
-                                                <label>Chuyên khoa</label>
-                                                <input type="text" name="specialty" placeholder="Chuyên khoa" class="form-control">
-                                            </div>
+                                        <!-- <form action="" method="POST"> -->
+                                        <div class="form-group">
+                                            <label>Chuyên khoa</label>
+                                            <input type="text" name="specialty" class="form-control" id="specialtyNew">
+                                        </div>
 
-                                            <div class="form-group">
-                                                <label>Sự kiện</label>
-                                                <input type="text" name="event" placeholder="Sự kiện" class="form-control">
-                                            </div>
+                                        <div class="form-group">
+                                            <label>Sự kiện</label>
+                                            <input type="text" name="event"  class="form-control" id="eventNew">
+                                        </div>
 
-                                            <div class="modal-footer">
-                                                <button class=" btn btn-secondary" data-bs-dismiss="modal">
-                                                    Hủy
-                                                </button>
-                                                <button class="btn btn-success" data-bs-dismiss="modal" type="submit" name="add">
-                                                    Ok
-                                                </button>
-                                            </div>
-                                        </form>
+                                        <div class="modal-footer">
+                                            <button class=" btn btn-secondary" data-bs-dismiss="modal">
+                                                Hủy
+                                            </button>
+                                            <button class="btn btn-success"  type="submit" name="addNew" id="addNew">
+                                                Ok
+                                            </button>
+                                        </div>
+                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@ if (isset($_POST['remove'])) {
                         </div>
 
                         <!-- delete  -->
-                        <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
+                        <div class="modal fade" id="delete" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -206,17 +206,18 @@ if (isset($_POST['remove'])) {
                                     </div>
 
                                     <div class="modal-body">
-                                        <form action="#" method="POST">
-                                            <h5>Bạn có chắc chắn muốn xóa?</h5>
-                                            <div class="mt-3">
-                                                <button class="btn btn-danger" data-bs-dismiss="modal" name="delete">
-                                                    Xóa
-                                                </button>
-                                                <button class="btn btn-default" type="button" data-bs-dismiss="modal">
-                                                    Hủy
-                                                </button>
-                                            </div>
-                                        </form>
+                                        <!-- <form action="#" method="POST"> -->
+                                        <h5>Bạn có chắc chắn muốn xóa?</h5>
+                                        <div class="mt-3">
+                                            <input type="hidden" id="idDel" class="form-control">
+                                            <button class="btn btn-danger" name="delete" id="delete">
+                                                Xóa
+                                            </button>
+                                            <button class="btn btn-default" type="button" data-bs-dismiss="modal">
+                                                Hủy
+                                            </button>
+                                        </div>
+                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -230,6 +231,35 @@ if (isset($_POST['remove'])) {
 </div>
 
 <script>
+    // add 
+    $(document).on('click', 'button[data-role=add]', function() {
+        $('#add').modal('toggle');
+    })
+
+    $('#addNew').click(function() {
+        var specialty = $('#specialtyNew').val();
+        var event = $('#eventNew').val();
+        var addNew = $('#addNew').val();
+
+        // console.log("name" + event);
+        $.ajax({
+            url: 'event.php',
+            method: 'post',
+            data: {
+                specialty: specialty,
+                event: event,
+                addNew: addNew
+            },
+            success: function(response) {
+                // console.log(response);
+                var row = '<tr><td>' + specialty + '</td> <td>' + event + '</td> <td><button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button></td><td><button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">Xóa</button></td> </tr>';
+                $('#event tr:last').after(row);
+                $('#add').modal('toggle');
+            }
+        });
+    });
+
+    // edit 
     $(document).ready(function() {
         $(document).on('click', 'button[data-role=edit]', function() {
             // alert($(this).data('id'));
@@ -268,6 +298,36 @@ if (isset($_POST['remove'])) {
                     // console.log(specialty);
                 }
             })
+        });
+
+        // remove 
+        $(document).on('click', 'button[data-role=remove]', function() {
+            // alert($(this).data('id'));
+
+            var id = $(this).data('id');
+            $('#idDel').val(id);
+            // console.log('id = ' + id);
+            $('#delete').modal('toggle');
+        });
+
+        $('#delete').click(function() {
+            var id = $('#idDel').val();
+            var del = $('#delete').val();
+
+            console.log(del);
+            $.ajax({
+                url: 'event.php',
+                method: 'post',
+                data: {
+                    id: id,
+                    del: del
+                },
+                success: function(response) {
+                    // console.log(response);
+                    $('#' + id).remove();
+                    $('#delete').modal('toggle');
+                }
+            });
         })
     })
 </script>

@@ -6,13 +6,13 @@ include('authentication.php');
 include('../header.php');
 
 // add 
-if (isset($_POST['add'])) {
+if (isset($_POST['addNew'])) {
 
     $name = $_POST['name'];
     $degree = $_POST['degree'];
     $specialty = $_POST['specialty'];
 
-    $query = "insert into speaker value (null, '$name', '$degree','$specialty')";
+    $query = "insert into login.speaker value (null, '$name', '$degree','$specialty')";
     $query_run = mysqli_query($connect, $query);
 
     // SET  @num := 0;
@@ -29,19 +29,18 @@ if (isset($_POST['save'])) {
     $specialty = $_POST['specialty'];
     $id = $_POST['id'];
 
-    // echo "$specialty";
     $query_run = mysqli_query($connect, "update login.speaker set specialty = '$specialty', name = '$name', degree = '$degree' where id = '$id'");
 
-    if ($query_run) {
-        $_SESSION['message'] = "Update success!";
-    } else {
-        $_SESSION['message'] = "Error!";
-    }
+    // if ($query_run) {
+    //     $_SESSION['message'] = "Update success!";
+    // } else {
+    //     $_SESSION['message'] = "Error!";
+    // }
 }
 
 // remove 
-if (isset($_POST['remove'])) {
-    $id = $_POST['remove'];
+if (isset($_POST['del']) != '') {
+    $id = $_POST['id'];
 
     // if (isset($_POST['delete'])) {
     $query = "delete from login.speaker where id = '$id'";
@@ -63,11 +62,11 @@ if (isset($_POST['remove'])) {
                     </div>
                     <div class="card-body">
 
-                        <button class="btn btn-info text-white mb-2" data-bs-toggle="modal" data-bs-target="#add">
+                        <button class="btn btn-info text-white mb-2" data-bs-toggle="modal" data-bs-target="#add" data-role="add">
                             Thêm diễn giả
                         </button>
 
-                        <table class="table table-hover table-bordered">
+                        <table class="table table-hover table-bordered" id="speaker">
                             <thead>
                                 <tr class="tbl-item">
                                     <!-- <th scope="col">STT</th> -->
@@ -93,16 +92,14 @@ if (isset($_POST['remove'])) {
                                             <td>
                                                 <!-- <form action="" method="get"> -->
                                                 <button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button>
-
                                                 <!-- </form> -->
                                             </td>
                                             <td>
-                                                <form action="" method="post">
-                                                    <button class="btn btn-danger" value="<?= $row['id']; ?>" name="remove">
-                                                        <!-- data-bs-toggle="modal" data-bs-target="#delete"  -->
-                                                        Xóa
-                                                    </button>
-                                                </form>
+                                                <!-- <form action="" method="post"> -->
+                                                <button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">
+                                                    Xóa
+                                                </button>
+                                                <!-- </form> -->
                                             </td>
                                         </tr>
                                 <?php
@@ -113,8 +110,7 @@ if (isset($_POST['remove'])) {
                         </table>
 
                         <!-- add speaker  -->
-
-                        <div class="modal fade" id="add" tabindex="-1" aria-hidden="true">
+                        <div class="modal fade" id="add" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -125,31 +121,31 @@ if (isset($_POST['remove'])) {
                                     </div>
 
                                     <div class="modal-body">
-                                        <form action="" method="POST">
-                                            <div class="form-group">
-                                                <label>Tên diễn giả</label>
-                                                <input type="text" name="name" class="form-control">
-                                            </div>
+                                        <!-- <form action="" method="POST"> -->
+                                        <div class="form-group">
+                                            <label>Tên diễn giả</label>
+                                            <input type="text" name="name" class="form-control" id="nameNew">
+                                        </div>
 
-                                            <div class="form-group">
-                                                <label>Học vị</label>
-                                                <input type="text" name="degree" class="form-control">
-                                            </div>
+                                        <div class="form-group">
+                                            <label>Học vị</label>
+                                            <input type="text" name="degree" class="form-control" id="degreeNew">
+                                        </div>
 
-                                            <div class="form-group">
-                                                <label>Chuyên ngành</label>
-                                                <input type="text" name="specialty" class="form-control">
-                                            </div>
+                                        <div class="form-group">
+                                            <label>Chuyên ngành</label>
+                                            <input type="text" name="specialty" class="form-control" id="specialtyNew">
+                                        </div>
 
-                                            <div class="modal-footer">
-                                                <button class=" btn btn-secondary" data-bs-dismiss="modal">
-                                                    Hủy
-                                                </button>
-                                                <button class="btn btn-success" data-bs-dismiss="modal" type="submit" name="add">
-                                                    Ok
-                                                </button>
-                                            </div>
-                                        </form>
+                                        <div class="modal-footer">
+                                            <button class=" btn btn-secondary" data-bs-dismiss="modal">
+                                                Hủy
+                                            </button>
+                                            <button class="btn btn-success" id="addNew" type="submit" name="addNew">
+                                                Ok
+                                            </button>
+                                        </div>
+                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +184,7 @@ if (isset($_POST['remove'])) {
                                         <input type="hidden" id="id" class="form-control">
 
                                         <div class="modal-footer">
-                                            <button class=" btn btn-secondary pull-left" data-bs-dismiss="modal">
+                                            <button class=" btn btn-secondary" data-bs-dismiss="modal">
                                                 Hủy
                                             </button>
 
@@ -203,7 +199,7 @@ if (isset($_POST['remove'])) {
                         </div>
 
                         <!-- delete  -->
-                        <div class="modal fade" id="delete" tabindex="-1" aria-hidden="true">
+                        <div class="modal fade" id="delete" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -214,17 +210,18 @@ if (isset($_POST['remove'])) {
                                     </div>
 
                                     <div class="modal-body">
-                                        <form action="#" method="POST">
-                                            <h5>Bạn có chắc chắn muốn xóa?</h5>
-                                            <div class="mt-3">
-                                                <button class="btn btn-danger" data-bs-dismiss="modal" name="delete">
-                                                    Xóa
-                                                </button>
-                                                <button class="btn btn-default" type="button" data-bs-dismiss="modal">
-                                                    Hủy
-                                                </button>
-                                            </div>
-                                        </form>
+                                        <!-- <form action="#" method="POST"> -->
+                                        <h5>Bạn có chắc chắn muốn xóa?</h5>
+                                        <div class="mt-3">
+                                            <input type="hidden" id="idDel" class="form-control">
+                                            <button class="btn btn-danger" name="delete" id="delete">
+                                                Xóa
+                                            </button>
+                                            <button class=" btn btn-secondary">
+                                                Hủy
+                                            </button>
+                                        </div>
+                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -239,6 +236,37 @@ if (isset($_POST['remove'])) {
 
 <script>
     $(document).ready(function() {
+        // add 
+        $(document).on('click', 'button[data-role=add]', function() {
+            $('#add').modal('toggle');
+        })
+
+        $('#addNew').click(function() {
+            var name = $('#nameNew').val();
+            var degree = $('#degreeNew').val();
+            var specialty = $('#specialtyNew').val();
+            var addNew = $('#addNew').val();
+
+            console.log("name" + degree);
+            $.ajax({
+                url: 'speaker.php',
+                method: 'post',
+                data: {
+                    name: name,
+                    degree: degree,
+                    specialty: specialty,
+                    addNew: addNew
+                },
+                success: function(response) {
+                    // console.log(response);
+                    var row = '<tr><td>' + name + '</td> <td>' + degree + '</td> <td>' + specialty + '</td> <td><button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button></td><td><button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">Xóa</button></td> </tr>';
+                    $('#speaker tr:last').after(row);
+                    $('#add').modal('toggle');
+                }
+            });
+        });
+
+        // edit 
         $(document).on('click', 'button[data-role=edit]', function() {
             // alert($(this).data('id'));
 
@@ -261,7 +289,7 @@ if (isset($_POST['remove'])) {
             var specialty = $('#specialty').val();
             var save = $('#save').val();
 
-            console.log(specialty);
+            // console.log(specialty);
             $.ajax({
                 url: 'speaker.php',
                 method: 'post',
@@ -281,6 +309,37 @@ if (isset($_POST['remove'])) {
                     // console.log(specialty);
                 }
             })
+        });
+
+        // remove 
+        $(document).on('click', 'button[data-role=remove]', function() {
+            // alert($(this).data('id'));
+
+            var id = $(this).data('id');
+            $('#idDel').val(id);
+            // console.log('id = ' + id);
+            $('#delete').modal('toggle');
+        });
+
+        $('#delete').click(function() {
+            var id = $('#idDel').val();
+            var del = $('#delete').val();
+
+            console.log(del);
+            $.ajax({
+                url: 'speaker.php',
+                method: 'post',
+                data: {
+                    id: id,
+                    del: del
+                },
+                success: function(response) {
+                    // console.log(response);
+                    $('#' + id).remove();
+                    $('#delete').modal('toggle');
+                }
+            });
         })
+
     })
 </script>
