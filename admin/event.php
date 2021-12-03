@@ -56,6 +56,27 @@ if (isset($_POST['del'])) {
     //     $_SESSION['message'] = "Error!";
     // }
 }
+
+// if (isset($_POST['search'])) {
+//     $search = $_POST['search'];
+//     $query = "select * from login.event where event like '%$search%' ";
+
+//     $query_run = mysqli_query($connect, $query);
+
+//     if (mysqli_num_rows($query_run) > 0) {
+        // while ($row = mysqli_fetch_assoc($query_run)) {
+        //     echo "
+        //     <tr>
+        //     <td>" . $row['specialty'] . "</td>
+        //     <td>" . $row['event'] . "</td>
+        //     </tr>
+        //     ";
+        // }
+//         echo "ok";
+//     } else {
+//         echo "No result!";
+//     }
+// }
 ?>
 
 <div>
@@ -71,11 +92,14 @@ if (isset($_POST['del'])) {
                     </div>
                     <div class="card-body">
 
-                        <button class="btn btn-info text-white mb-2" data-bs-toggle="modal" data-bs-target="#add" data-role="add">
+                        <input type="text" placeholder="Tìm kiếm" class="form-control w-25 d-inline " id="search" name="search" style="margin-top:0px" />
+
+                        <button class="btn btn-info text-white mb-2 d-inline float-end" data-bs-toggle="modal" data-bs-target="#add" data-role="add">
                             Thêm sự kiện
                         </button>
 
-                        <table class="table table-hover table-bordered" id="event">
+
+                        <table class="table table-hover table-bordered" id="event_tbl">
                             <thead>
                                 <tr class="tbl-item">
                                     <!-- <th scope="col">STT</th> -->
@@ -86,7 +110,7 @@ if (isset($_POST['del'])) {
                                 </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody id="output">
                                 <?php
                                 $query = "select * from event";
                                 $query_run = mysqli_query($connect, $query);
@@ -136,14 +160,14 @@ if (isset($_POST['del'])) {
 
                                         <div class="form-group">
                                             <label>Sự kiện</label>
-                                            <input type="text" name="event"  class="form-control" id="eventNew">
+                                            <input type="text" name="event" class="form-control" id="eventNew">
                                         </div>
 
                                         <div class="modal-footer">
                                             <button class=" btn btn-secondary" data-bs-dismiss="modal">
                                                 Hủy
                                             </button>
-                                            <button class="btn btn-success"  type="submit" name="addNew" id="addNew">
+                                            <button class="btn btn-success" type="submit" name="addNew" id="addNew">
                                                 Ok
                                             </button>
                                         </div>
@@ -232,35 +256,35 @@ if (isset($_POST['del'])) {
 
 <script>
     // add 
-    $(document).on('click', 'button[data-role=add]', function() {
-        $('#add').modal('toggle');
-    })
 
-    $('#addNew').click(function() {
-        var specialty = $('#specialtyNew').val();
-        var event = $('#eventNew').val();
-        var addNew = $('#addNew').val();
-
-        // console.log("name" + event);
-        $.ajax({
-            url: 'event.php',
-            method: 'post',
-            data: {
-                specialty: specialty,
-                event: event,
-                addNew: addNew
-            },
-            success: function(response) {
-                // console.log(response);
-                var row = '<tr><td>' + specialty + '</td> <td>' + event + '</td> <td><button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button></td><td><button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">Xóa</button></td> </tr>';
-                $('#event tr:last').after(row);
-                $('#add').modal('toggle');
-            }
-        });
-    });
-
-    // edit 
     $(document).ready(function() {
+        $(document).on('click', 'button[data-role=add]', function() {
+            $('#add').modal('toggle');
+        })
+
+        $('#addNew').click(function() {
+            var specialty = $('#specialtyNew').val();
+            var event = $('#eventNew').val();
+            var addNew = $('#addNew').val();
+
+            // console.log("name" + event);
+            $.ajax({
+                url: 'event.php',
+                method: 'post',
+                data: {
+                    specialty: specialty,
+                    event: event,
+                    addNew: addNew
+                },
+                success: function(response) {
+                    // console.log(response);
+                    var row = '<tr><td>' + specialty + '</td> <td>' + event + '</td> <td><button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button></td><td><button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">Xóa</button></td> </tr>';
+                    $('#event_tbl tr:last').after(row);
+                    $('#add').modal('toggle');
+                }
+            });
+        });
+        // edit 
         $(document).on('click', 'button[data-role=edit]', function() {
             // alert($(this).data('id'));
 
@@ -328,6 +352,14 @@ if (isset($_POST['del'])) {
                     $('#delete').modal('toggle');
                 }
             });
+        });
+
+        // search 
+        $('#search').keyup(function(){
+            var text = $('#search').val();
+            $.post('search.php', {data: text}, function(data){
+                $('#output').html(data);
+            })
         })
-    })
+    });
 </script>
