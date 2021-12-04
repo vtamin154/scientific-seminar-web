@@ -12,16 +12,15 @@ if (isset($_POST['data'])) {
             <tr id="<?= $row['id']; ?>">
                 <td data-target="specialty"><?= $row['specialty']; ?></td>
                 <td data-target="event"><?= $row['event']; ?></td>
-                <td>
-                    <!-- <form action="" method="get"> -->
-                    <button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button>
 
-                    <!-- </form> -->
-                </td>
+                <!-- edit button  -->
                 <td>
-                    <!-- <form action="" method="post"> -->
+                    <button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button>
+                </td>
+
+                <!-- remove button  -->
+                <td>
                     <button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" id="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">Xóa</button>
-                    <!-- </form> -->
                 </td>
             </tr>
 <?php

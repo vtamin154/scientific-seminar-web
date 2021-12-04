@@ -28,7 +28,7 @@
 
         </ul>
         <hr>
-        <div class="dropdown pb-4" style="margin-top: 267px;">
+        <div class="dropdown pb-4" style="margin-top: 295px;">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-mediumSquareAt3X-v2.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">
                 <span class="d-none d-sm-inline mx-1">Admin</span>
