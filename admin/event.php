@@ -37,7 +37,7 @@ if (isset($_POST['save'])) {
     $event = $_POST['event'];
     $id = $_POST['id'];
 
-    echo "$specialty";
+    // echo "$specialty";
     $query_run = mysqli_query($connect, "update login.event set specialty = '$specialty', event = '$event' where id = '$id'");
 }
 
@@ -45,10 +45,8 @@ if (isset($_POST['save'])) {
 if (isset($_POST['del'])) {
     $id = $_POST['id'];
 
-    // if (isset($_POST['delete'])) {
     $query = "delete from login.event where id = '$id'";
     $query_run = mysqli_query($connect, $query);
-    // }
 
     // if ($query_run) {
     //     $_SESSION['message'] = "Delete success!";
@@ -120,16 +118,15 @@ if (isset($_POST['del'])) {
                                         <tr id="<?= $row['id']; ?>">
                                             <td data-target="specialty"><?= $row['specialty']; ?></td>
                                             <td data-target="event"><?= $row['event']; ?></td>
-                                            <td>
-                                                <!-- <form action="" method="get"> -->
-                                                <button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button>
 
-                                                <!-- </form> -->
-                                            </td>
+                                            <!-- edit button  -->
                                             <td>
-                                                <!-- <form action="" method="post"> -->
+                                                <button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button>
+                                            </td>
+
+                                            <!-- edit button  -->
+                                            <td>
                                                 <button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" id="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">Xóa</button>
-                                                <!-- </form> -->
                                             </td>
                                         </tr>
                                 <?php
@@ -139,8 +136,8 @@ if (isset($_POST['del'])) {
                             </tbody>
                         </table>
 
-                        <!-- add event  -->
 
+                        <!-- add event  -->
                         <div class="modal fade" id="add" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -190,8 +187,6 @@ if (isset($_POST['del'])) {
                                     </div>
 
                                     <div class="modal-body">
-                                        <!-- <form action=""> -->
-
                                         <div class="form-group">
                                             <label>Chuyên khoa</label>
                                             <input type="text" name="specialty" id="specialty" class="form-control">
@@ -212,11 +207,11 @@ if (isset($_POST['del'])) {
                                                 Cập nhật
                                             </button>
                                         </div>
-                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
+
 
                         <!-- delete  -->
                         <div class="modal fade" id="delete" role="dialog">
@@ -230,7 +225,6 @@ if (isset($_POST['del'])) {
                                     </div>
 
                                     <div class="modal-body">
-                                        <!-- <form action="#" method="POST"> -->
                                         <h5>Bạn có chắc chắn muốn xóa?</h5>
                                         <div class="mt-3">
                                             <input type="hidden" id="idDel" class="form-control">
@@ -241,7 +235,6 @@ if (isset($_POST['del'])) {
                                                 Hủy
                                             </button>
                                         </div>
-                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>

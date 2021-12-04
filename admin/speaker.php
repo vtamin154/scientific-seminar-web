@@ -42,10 +42,8 @@ if (isset($_POST['save'])) {
 if (isset($_POST['del']) != '') {
     $id = $_POST['id'];
 
-    // if (isset($_POST['delete'])) {
     $query = "delete from login.speaker where id = '$id'";
     $query_run = mysqli_query($connect, $query);
-    // }
 
 }
 
@@ -94,17 +92,17 @@ if (isset($_POST['del']) != '') {
                                             <td data-target="name"><?= $row['name']; ?></td>
                                             <td data-target="degree"><?= $row['degree']; ?></td>
                                             <td data-target="specialty"><?= $row['specialty']; ?></td>
+
+                                            <!-- edit button  -->
                                             <td>
-                                                <!-- <form action="" method="get"> -->
                                                 <button class="btn btn-warning" name="edit" data-id="<?= $row['id']; ?>" data-bs-toggle="modal" data-bs-target="#edit" data-role="edit">Sửa</button>
-                                                <!-- </form> -->
                                             </td>
+
+                                            <!-- remove button  -->
                                             <td>
-                                                <!-- <form action="" method="post"> -->
                                                 <button class="btn btn-danger" data-id="<?= $row['id']; ?>" name="remove" data-bs-toggle="modal" data-bs-target="#delete" data-role="remove">
                                                     Xóa
                                                 </button>
-                                                <!-- </form> -->
                                             </td>
                                         </tr>
                                 <?php
@@ -126,7 +124,6 @@ if (isset($_POST['del']) != '') {
                                     </div>
 
                                     <div class="modal-body">
-                                        <!-- <form action="" method="POST"> -->
                                         <div class="form-group">
                                             <label>Tên diễn giả</label>
                                             <input type="text" name="name" class="form-control" id="nameNew">
@@ -150,7 +147,6 @@ if (isset($_POST['del']) != '') {
                                                 Ok
                                             </button>
                                         </div>
-                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -169,8 +165,6 @@ if (isset($_POST['del']) != '') {
                                     </div>
 
                                     <div class="modal-body">
-                                        <!-- <form action=""> -->
-
                                         <div class="form-group">
                                             <label>Tên diễn giả</label>
                                             <input type="text" name="name" id="name" class="form-control">
@@ -197,7 +191,6 @@ if (isset($_POST['del']) != '') {
                                                 Cập nhật
                                             </button>
                                         </div>
-                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -215,7 +208,6 @@ if (isset($_POST['del']) != '') {
                                     </div>
 
                                     <div class="modal-body">
-                                        <!-- <form action="#" method="POST"> -->
                                         <h5>Bạn có chắc chắn muốn xóa?</h5>
                                         <div class="mt-3">
                                             <input type="hidden" id="idDel" class="form-control">
@@ -226,7 +218,6 @@ if (isset($_POST['del']) != '') {
                                                 Hủy
                                             </button>
                                         </div>
-                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
