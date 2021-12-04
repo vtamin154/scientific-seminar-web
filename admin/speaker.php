@@ -48,6 +48,9 @@ if (isset($_POST['del']) != '') {
     // }
 
 }
+
+// search 
+
 ?>
 <div>
     <div class="container-fluid">
@@ -62,7 +65,9 @@ if (isset($_POST['del']) != '') {
                     </div>
                     <div class="card-body">
 
-                        <button class="btn btn-info text-white mb-2" data-bs-toggle="modal" data-bs-target="#add" data-role="add">
+                        <input type="text" placeholder="Tìm kiếm" class="form-control w-25 d-inline " id="search" name="search" style="margin-top:0px" />
+
+                        <button class="btn btn-info text-white mb-2 d-inline float-end" data-bs-toggle="modal" data-bs-target="#add" data-role="add">
                             Thêm diễn giả
                         </button>
 
@@ -78,7 +83,7 @@ if (isset($_POST['del']) != '') {
                                 </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody id="output">
                                 <?php
                                 $query = "select * from speaker";
                                 $query_run = mysqli_query($connect, $query);
@@ -339,6 +344,31 @@ if (isset($_POST['del']) != '') {
                     $('#delete').modal('toggle');
                 }
             });
+        })
+
+        // search 
+        $('#search').keyup(function() {
+            var text = $('#search').val();
+            // alert(text);
+
+            // $.ajax({
+            //     url: 'speaker.php',
+            //     method: 'post',
+            //     data: {
+            //         search: text
+            //     },
+            //     success: function(data) {
+            //         $('#output').html(data);
+            //         // console.log(data);
+            //     }
+            // });
+
+            $.post('search_speaker.php', {
+                data: text
+            }, function(data) {
+                $('#output').html(data);
+                // console.log(data);
+            })
         })
 
     })

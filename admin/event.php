@@ -64,14 +64,14 @@ if (isset($_POST['del'])) {
 //     $query_run = mysqli_query($connect, $query);
 
 //     if (mysqli_num_rows($query_run) > 0) {
-        // while ($row = mysqli_fetch_assoc($query_run)) {
-        //     echo "
-        //     <tr>
-        //     <td>" . $row['specialty'] . "</td>
-        //     <td>" . $row['event'] . "</td>
-        //     </tr>
-        //     ";
-        // }
+// while ($row = mysqli_fetch_assoc($query_run)) {
+//     echo "
+//     <tr>
+//     <td>" . $row['specialty'] . "</td>
+//     <td>" . $row['event'] . "</td>
+//     </tr>
+//     ";
+// }
 //         echo "ok";
 //     } else {
 //         echo "No result!";
@@ -355,10 +355,13 @@ if (isset($_POST['del'])) {
         });
 
         // search 
-        $('#search').keyup(function(){
+        $('#search').keyup(function() {
             var text = $('#search').val();
-            $.post('search.php', {data: text}, function(data){
+            $.post('search.php', {
+                data: text
+            }, function(data) {
                 $('#output').html(data);
+                // console.log(data);
             })
         })
     });
